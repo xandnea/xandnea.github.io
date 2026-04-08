@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xander Neary | Software Portfolio</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 40px; }
+        .container { max-width: 900px; margin: auto; }
+        header { text-align: center; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { margin-top: 0; color: #007bff; }
+        .btn { display: inline-block; margin-top: 10px; padding: 8px 16px; background: #007bff; color: white; text-decoration: none; border-radius: 6px; font-size: 14px; }
+        .btn-secondary { background: #6c757d; margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Alexander Neary</h1>
+            <p>CS Senior @ UCLA | Graphics & Simulation Engineering</p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h3>3D Snake Game</h3>
+                <p>A WebGL-based 3D game featuring frame-independent movement and custom UI.</p>
+                <a href="https://yourusername.github.io/CS174C-TeamProject-3DSnake/" class="btn">Play Demo</a>
+                <a href="https://github.com/yourusername/CS174C-TeamProject-3DSnake" class="btn btn-secondary">Source Code</a>
+            </div>
+
+            <div class="card">
+                <h3>Robotics Hand-Tracking</h3>
+                <p>Computer vision pipeline for robotic manipulation (includes demo video).</p>
+                <a href="https://yourusername.github.io/CS188-Robotics-Project/" class="btn">View Demo</a>
+                <a href="https://github.com/yourusername/CS188-Robotics-Project" class="btn btn-secondary">Source Code</a>
+            </div>
+
+            <div class="card">
+                <h3>"On My Own"</h3>
+                <p>2D platformer built in Unity with localized gravity mechanics.</p>
+                <a href="YOUR_ITCH_IO_LINK" class="btn">Play on Itch.io</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
