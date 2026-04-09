@@ -5,15 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xander Neary | Software Portfolio</title>
     <style>
-        body { font-family: 'Inter', sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 40px; }
-        .container { max-width: 900px; margin: auto; }
-        header { text-align: center; margin-bottom: 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { margin-top: 0; color: #007bff; }
-        .btn { display: inline-block; margin-top: 10px; padding: 8px 16px; background: #007bff; color: white; text-decoration: none; border-radius: 6px; font-size: 14px; }
-        .btn-secondary { background: #6c757d; margin-left: 10px; }
+        :root {
+            --ucla-blue: #2774AE;
+            --ucla-gold: #FFD100;
+            --dark-blue: #003B5C;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --sub-bg: #f1f5f9;
+        }
+
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: var(--text); 
+            margin: 0; 
+            padding: 40px 20px; 
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1000px; margin: auto; }
+
+        header { 
+            text-align: center; 
+            margin-bottom: 60px; 
+            padding: 60px 20px;
+            background: rgba(39, 116, 174, 0.05);
+            border: 1px solid rgba(39, 116, 174, 0.1);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%; left: -10%;
+            width: 40%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 209, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+
+        header h1 { font-size: 2.8rem; margin-bottom: 8px; font-weight: 800; color: var(--dark-blue); }
+        header p { color: var(--ucla-blue); font-size: 1.1rem; margin-bottom: 25px; font-weight: 500; }
+
+        .social-links { display: flex; justify-content: center; gap: 12px; }
+        .social-btn {
+            text-decoration: none;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 12px;
+            background: var(--ucla-blue);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(39, 116, 174, 0.2);
+        }
+        .social-btn:hover { background: var(--dark-blue); transform: translateY(-3px); }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 24px; 
+        }
+
+        .card { 
+            position: relative;
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            min-height: 280px; /* Ensures vertical consistency */
+        }
+
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(39, 116, 174, 0.1); 
+            border-color: rgba(39, 116, 174, 0.2);
+        }
+
+        .date-tag {
+            position: absolute;
+            top: 20px; right: 20px;
+            font-size: 11px; font-weight: 800;
+            color: var(--ucla-blue);
+            background: rgba(39, 116, 174, 0.1);
+            padding: 5px 12px; border-radius: 30px;
+        }
+
+        .card h3 { margin: 0 0 8px 0; color: var(--ucla-blue); font-size: 1.4rem; padding-right: 60px; }
+
+        .card h4 {
+            font-size: 0.75rem; color: #475569; background: var(--ucla-gold);
+            margin: 0 0 18px 0; padding: 4px 10px; border-radius: 6px;
+            display: inline-block; font-weight: 700; text-transform: uppercase;
+        }
+
+        .card p { color: #475569; font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
+
+        /* THE FIX: Pushes buttons to the bottom regardless of text amount */
+        .btn-group { 
+            display: flex; 
+            gap: 10px; 
+            flex-wrap: wrap; 
+            margin-top: auto; 
+            min-height: 42px; 
+        }
+
+        .btn { 
+            padding: 10px 20px; background: var(--ucla-blue); color: white; 
+            text-decoration: none; border-radius: 10px; font-size: 14px; 
+            font-weight: 600; transition: all 0.2s;
+        }
+
+        .btn:hover { background: var(--dark-blue); }
+        .btn-secondary { background: white; color: var(--ucla-blue); border: 2px solid var(--ucla-blue); }
+        .btn-secondary:hover { background: var(--ucla-blue); color: white; }
+
+        .resume-card { 
+            grid-column: 1 / -1; 
+            text-align: center; 
+            border: 2px dashed var(--ucla-blue); 
+            background: rgba(39, 116, 174, 0.02); 
+            box-shadow: none;
+            margin-top: 10px;
+            min-height: auto;
+        }
+
+        .resume-card:hover { 
+            background: #ffffff; 
+            border-style: solid; 
+            border-color: var(--ucla-gold);
+        }
+        
+        .resume-card h4 { background: var(--ucla-blue); color: white; }
     </style>
 </head>
 <body>
@@ -21,39 +152,85 @@
         <header>
             <h1>Alexander (Xander) Neary</h1>
             <p>CS Senior @ UCLA | Graphics & Simulation Engineering</p>
+            <div class="social-links">
+                <a href="https://github.com/xandnea" class="social-btn">GitHub</a>
+                <a href="https://www.linkedin.com/in/xander-neary/" class="social-btn">LinkedIn</a>
+                <a href="https://www.instagram.com/xander.neary" class="social-btn">Instagram</a>
+            </div>
         </header>
 
         <div class="grid">
             <div class="card">
+                <span class="date-tag">2024</span>
                 <h3>VR Surfing Simulator</h3>
-                <p>A Unity-based Virtual Reality surfing simulator, created to help relieve chronic back and pelvic pain.</p>
-                <a href="https://xandnea.github.io/SURE Research Poster.pdf" class="btn">View Research Poster</a>
-                <a href="https://docs.google.com/presentation/d/18ExA81dWbgcO4W4kVsnvQ8ddb5Fc8EAyjfr8iG5KGcI/edit?usp=sharing" class="btn">View Videos</a>
-            </div>
-            
-            <div class="card">
-                <h3>3D Snake Game</h3>
-                <p>A WebGL-based 3D game featuring frame-independent movement and custom UI.</p>
-                <a href="https://xandnea.github.io/CS174C-TeamProject-3DSnake/" class="btn">Play Demo</a>
-                <a href="https://github.com/xandnea/CS174C-TeamProject-3DSnake" class="btn btn-secondary">Source Code</a>
+                <h4>Summer Undergraduate Research Experience at USC</h4>
+                <p>Engineered an immersive VR environment in Unity to mitigate chronic pain. Developed custom wave shaders and physics-based water interactions.</p>
+                <div class="btn-group">
+                    <a href="https://xandnea.github.io/SURE Research Poster.pdf" class="btn">Poster</a>
+                    <a href="https://docs.google.com/presentation/d/18ExA81dWbgcO4W4kVsnvQ8ddb5Fc8EAyjfr8iG5KGcI/edit?usp=sharing" class="btn btn-secondary">Demo Videos</a>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Robotics Hand-Tracking</h3>
-                <p>Computer vision pipeline for robotic manipulation.</p>
-                <a href="https://xandnea.github.io/CS188-Robotics-Project/" class="btn">View Demo</a>
-                <a href="https://github.com/xandnea/CS188-Robotics-Project" class="btn btn-secondary">Source Code</a>
+                <span class="date-tag">2026</span>
+                <h3>3D Snake</h3>
+                <h4>Computer Animation (CS174C)</h4>
+                <p>Built a WebGL animation system using tiny-graphics.js. Implemented Symplectic Euler integration and Hermite splines for physics-driven movement.</p>
+                <div class="btn-group">
+                    <a href="https://xandnea.github.io/CS174C-TeamProject-3DSnake/" class="btn">Play Demo</a>
+                    <a href="https://github.com/xandnea/CS174C-TeamProject-3DSnake" class="btn btn-secondary">Source Code</a>
+                </div>
             </div>
 
             <div class="card">
+                <span class="date-tag">2025</span>
+                <h3>GestureBot</h3>
+                <h4>Robotics (CS188)</h4>
+                <p>Architected a computer vision pipeline for real-time robotic control. Mapped Mediapipe hand landmarks to gripper kinematics for teleoperation.</p>
+                <div class="btn-group">
+                    <a href="https://xandnea.github.io/CS188-Robotics-Project/" class="btn">View Demo</a>
+                    <a href="https://github.com/xandnea/CS188-Robotics-Project" class="btn btn-secondary">Source Code</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="date-tag">2026</span>
+                <h3>Secure Transport Layer</h3>
+                <h4>Computer Networking (CS118)</h4>
+                <p>Developed a custom secure protocol in C featuring a TLS handshake. Integrated AES-256-CBC and HMAC-SHA256 for data privacy and integrity.</p>
+                <div class="btn-group">
+                    <a href="https://github.com/xandnea/CS118-Project2" class="btn btn-secondary">Source Code</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="date-tag">2025</span>
+                <h3>Brewin Interpreter</h3>
+                <h4>Programming Languages (CS131)</h4>
+                <p>Programmed a functional language interpreter in Python. Implemented AST parsing, dynamic scoping, and variable shadowing.</p>
+                <div class="btn-group">
+                    <a href="https://github.com/xandnea/CS131-Project1" class="btn btn-secondary">Source Code</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="date-tag">2023</span>
                 <h3>"On My Own"</h3>
-                <p>2D platformer built in Unity with localized gravity mechanics.</p>
-                <a href="http://kmbusybee.itch.io/on-my-own" class="btn">Play on Itch.io</a>
+                <h4>ACM.studio Project</h4>
+                <p>Developed a 2D physics-platformer in Unity. Designed localized gravity field mechanics and a custom character controller for spatial puzzles.</p>
+                <div class="btn-group">
+                    <a href="http://kmbusybee.itch.io/on-my-own" class="btn">Play Demo</a>
+                </div>
             </div>
-            
-            <div class="card">
-                <h3>Resume</h3>
-                <a href="https://xandnea.github.io/Software Resume 4_8_26.pdf" class="btn">View PDF Resume</a>
+
+            <div class="card resume-card">
+                <span class="date-tag">Current</span>
+                <h3>Professional Resume</h3>
+                <h4>Software Engineering</h4>
+                <p>A comprehensive overview of academic coursework at UCLA, technical skills in C++, and professional research experience in simulation and graphics.</p>
+                <div class="btn-group" style="justify-content: center;">
+                    <a href="https://xandnea.github.io/Software Resume 4_8_26.pdf" class="btn">Download PDF</a>
+                </div>
             </div>
         </div>
     </div>
