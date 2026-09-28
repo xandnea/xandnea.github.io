@@ -4,181 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xander Neary | Software Portfolio</title>
-    <style>
-        :root {
-            --ucla-blue: #2774AE;
-            --ucla-gold: #FFD100;
-            --dark-blue: #003B5C;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #1e293b;
-            --sub-bg: #f1f5f9;
-        }
-
-        body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            color: var(--text); 
-            margin: 0; 
-            padding: 40px 20px; 
-            line-height: 1.6;
-        }
-
-        .container { max-width: 1000px; margin: auto; }
-
-        header { 
-            text-align: center; 
-            margin-bottom: 60px; 
-            padding: 60px 20px;
-            background: rgba(39, 116, 174, 0.05);
-            border: 1px solid rgba(39, 116, 174, 0.1);
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50%; left: -10%;
-            width: 40%; height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 209, 0, 0.1), transparent);
-            transform: rotate(45deg);
-            pointer-events: none;
-        }
-
-        header h1 { font-size: 2.8rem; margin-bottom: 8px; font-weight: 800; color: var(--dark-blue); }
-        header p { color: var(--ucla-blue); font-size: 1.1rem; margin-bottom: 25px; font-weight: 500; }
-
-        .social-links { display: flex; justify-content: center; gap: 12px; }
-        .social-btn {
-            text-decoration: none;
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 12px;
-            background: var(--ucla-blue);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(39, 116, 174, 0.2);
-        }
-        .social-btn:hover { background: var(--dark-blue); transform: translateY(-3px); }
-
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 24px; 
-        }
-
-        .card { 
-            position: relative;
-            background: var(--card-bg); 
-            padding: 30px; 
-            border-radius: 20px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            min-height: 280px; /* Ensures vertical consistency */
-        }
-
-        .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(39, 116, 174, 0.1); 
-            border-color: rgba(39, 116, 174, 0.2);
-        }
-
-        .date-tag {
-            position: absolute;
-            top: 20px; right: 20px;
-            font-size: 11px; font-weight: 800;
-            color: var(--ucla-blue);
-            background: rgba(39, 116, 174, 0.1);
-            padding: 5px 12px; border-radius: 30px;
-        }
-
-        .card h3 { margin: 0 0 8px 0; color: var(--ucla-blue); font-size: 1.4rem; padding-right: 60px; }
-
-        .card h4 {
-            font-size: 0.75rem; color: #475569; background: var(--ucla-gold);
-            margin: 0 0 18px 0; padding: 4px 10px; border-radius: 6px;
-            display: inline-block; font-weight: 700; text-transform: uppercase;
-        }
-
-        .card p { color: #475569; font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
-
-        /* THE FIX: Pushes buttons to the bottom regardless of text amount */
-        .btn-group { 
-            display: flex; 
-            gap: 10px; 
-            flex-wrap: wrap; 
-            margin-top: auto; 
-            min-height: 42px; 
-        }
-
-        .btn { 
-            padding: 10px 20px; background: var(--ucla-blue); color: white; 
-            text-decoration: none; border-radius: 10px; font-size: 14px; 
-            font-weight: 600; transition: all 0.2s;
-        }
-
-        .btn:hover { background: var(--dark-blue); }
-        .btn-secondary { background: white; color: var(--ucla-blue); border: 2px solid var(--ucla-blue); }
-        .btn-secondary:hover { background: var(--ucla-blue); color: white; }
-
-        .resume-card { 
-            grid-column: 1 / -1; 
-            text-align: center; 
-            border: 2px dashed var(--ucla-blue); 
-            background: rgba(39, 116, 174, 0.02); 
-            box-shadow: none;
-            margin-top: 10px;
-            min-height: auto;
-        }
-
-        .resume-card:hover { 
-            background: #ffffff; 
-            border-style: solid; 
-            border-color: var(--ucla-gold);
-        }
-        
-        .resume-card h4 { background: var(--ucla-blue); color: white; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <header>
             <h1>Alexander (Xander) Neary</h1>
-            <p>CS Senior @ UCLA | Graphics & Simulation Engineering</p>
+            <p>UCLA Computer Science Senior · Simulation, XR &amp; Real-Time Systems</p>
+            <div class="focus-tags" aria-label="Technical focus areas">
+                <span class="focus-tag">C++ / Unity C# / Python</span>
+                <span class="focus-tag">Physics Simulation</span>
+                <span class="focus-tag">AR / VR / Computer Vision</span>
+                <span class="focus-tag">Cross Functional Systems</span>
+            </div>
+     
             <div class="social-links">
                 <a href="https://github.com/xandnea" class="social-btn">GitHub</a>
                 <a href="https://www.linkedin.com/in/xander-neary/" class="social-btn">LinkedIn</a>
-                <a href="https://www.instagram.com/xander.neary" class="social-btn">Instagram</a>
+                <a href="https://xandnea.github.io/Software Resume 9_24_26.pdf" class="social-btn">Resume</a>
             </div>
         </header>
 
+        <div class="hover-hint">Hover cards for technical details.</div>
+
         <div class="grid">
+            <div class="card">
+                <span class="date-tag">2026</span>
+                <h3>Eye-Controlled AR UI Interaction</h3>
+                <h4>Personal Project</h4>
+                <p>
+                    Independently built ECARUII, an Android AR accessibility prototype that lets users inspect real-world
+                    objects hands-free using calibrated eye gaze, object segmentation, and AR depth anchoring.
+                </p>
+
+                <div class="tech-stack" aria-label="Technologies used">
+                    <span class="tech-tag">C# / C++</span>
+                    <span class="tech-tag">Unity + AR Foundation</span>
+                    <span class="tech-tag">MediaPipe</span>
+                    <span class="tech-tag">YOLO11 / ONNX Runtime</span>
+                    <span class="tech-tag">Vulkan</span>
+                </div>
+
+                <div class="technical-details">
+                    <div>
+                        <h5>Technical Details</h5>
+                        <ul>
+                            <li>Calibrated front-camera facial landmarks into screen-space gaze coordinates for hands-free UI interaction.</li>
+                            <li>Mapped YOLO11 segmentation masks through AR depth queries into persistent world-space anchors.</li>
+                            <li>Built a native C++ Vulkan interoperability bridge to reduce camera-texture CPU readback on Android.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://github.com/xandnea/Eye-Controlled-AR-UI-Interaction" class="btn">Release</a>
+                    <a href="https://docs.google.com/document/d/12NwAYiVth-TJw5IjjsZ63s_6z_8N0sTc/edit?usp=sharing&ouid=107575258905610502392&rtpof=true&sd=true" class="btn btn-secondary">Dev Outline</a>
+                </div>
+
+            </div>
+
             <div class="card">
                 <span class="date-tag">2024</span>
                 <h3>VR Surfing Simulator</h3>
                 <h4>Summer Undergraduate Research Experience at USC</h4>
-                <p>Engineered an immersive VR environment in Unity to mitigate chronic pain. Developed custom wave shaders and physics-based water interactions.</p>
+                <p>
+                    Engineered an immersive VR environment in Unity to mitigate chronic pain.
+                    Developed custom wave shaders and physics-based water interactions.
+                </p>
+
+                <div class="tech-stack" aria-label="Technologies used">
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">VR</span>
+                    <span class="tech-tag">Shaders</span>
+                    <span class="tech-tag">Editor Tooling</span>
+                </div>
+
+                <div class="technical-details">
+                    <div>
+                        <h5>Technical details</h5>
+                        <ul>
+                            <li>Adjusted custom wave shaders and water interactions to improve visual realism and runtime stability.</li>
+                            <li>Built editor automation that reduced researcher simulation setup time by approximately 40%.</li>
+                            <li>Worked directly with non-engineering researchers to translate study needs into maintainable Unity tooling.</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="btn-group">
                     <a href="https://xandnea.github.io/SURE Research Poster.pdf" class="btn">Poster</a>
                     <a href="https://docs.google.com/presentation/d/18ExA81dWbgcO4W4kVsnvQ8ddb5Fc8EAyjfr8iG5KGcI/edit?usp=sharing" class="btn btn-secondary">Demo Videos</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <span class="date-tag">2026</span>
-                <h3>ECARUII</h3>
-                <h4>Personal Project</h4>
-                <p>Eye-Controlled Augmented Reality User Interface Interaction. Independently developed (with AI-assisted tooling) a Unity Android accessibility prototype combining calibrated eye gaze, YOLO11 segmentation, and AR depth anchors for hands-free object scanning and inspection.</p>
-                <div class="btn-group">
-                    <a href="https://github.com/xandnea/Eye-Controlled-AR-UI-Interaction" class="btn">Release</a>
-                    <a href="https://docs.google.com/document/d/12NwAYiVth-TJw5IjjsZ63s_6z_8N0sTc/edit?usp=sharing&ouid=107575258905610502392&rtpof=true&sd=true" class="btn btn-secondary">Dev Outline</a>
                 </div>
             </div>
             
@@ -186,7 +102,29 @@
                 <span class="date-tag">2026</span>
                 <h3>3D Snake</h3>
                 <h4>Computer Animation (CS174C)</h4>
-                <p>Built a WebGL animation system using tiny-graphics.js. Implemented Symplectic Euler integration and Hermite splines for physics-driven movement.</p>
+                <p>
+                    Built a WebGL animation system using tiny-graphics.js. 
+                    Implemented Symplectic Euler integration and Hermite splines for physics-driven movement.
+                </p>
+
+                <div class="tech-stack" aria-label="Technologies used">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">WebGL</span>
+                    <span class="tech-tag">TinyGraphics</span>
+                    <span class="tech-tag">Numerical Integration</span>
+                </div>
+
+                <div class="technical-details">
+                    <div>
+                        <h5>Technical details</h5>
+                        <ul>
+                            <li>Implemented Symplectic Euler integration and Hermite splines for stable physics-driven movement.</li>
+                            <li>Built camera transforms and 3D position/velocity behavior: relevant foundations for 6DOF simulation.</li>
+                            <li>Created responsive JavaScript/CSS UI for menus, scoring, game state, and player feedback.</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="btn-group">
                     <a href="https://xandnea.github.io/CS174C-TeamProject-3DSnake/" class="btn">Play Demo</a>
                     <a href="https://github.com/xandnea/CS174C-TeamProject-3DSnake" class="btn btn-secondary">Source Code</a>
@@ -197,7 +135,30 @@
                 <span class="date-tag">2025</span>
                 <h3>GestureBot</h3>
                 <h4>Robotics (CS188)</h4>
-                <p>Architected a computer vision pipeline for real-time robotic control. Mapped Mediapipe hand landmarks to gripper kinematics for teleoperation.</p>
+                <p>
+                    Architected a computer vision pipeline for real-time robotic control. 
+                    Mapped Mediapipe hand landmarks to gripper kinematics for teleoperation.
+                </p>
+
+                <div class="tech-stack" aria-label="Technologies used">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">MuJoCo</span>
+                    <span class="tech-tag">PID Control</span>
+                    <span class="tech-tag">Computer Vision</span>
+                </div>
+
+                <div class="technical-details">
+                    <div>
+                        <h5>Technical details</h5>
+                        <ul>
+                            <li>Converted OpenCV hand-tracking measurements into control inputs for a physics-simulated robotic arm.</li>
+                            <li>Integrated MuJoCo dynamics and PID controls to produce stable, real-time motion.</li>
+                            <li>Connected perception, kinematics, controls, and simulation in one end-to-end robotics prototype.</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="btn-group">
                     <a href="https://xandnea.github.io/CS188-Robotics-Project/" class="btn">View Demo</a>
                     <a href="https://github.com/xandnea/CS188-Robotics-Project" class="btn btn-secondary">Source Code</a>
@@ -208,7 +169,29 @@
                 <span class="date-tag">2026</span>
                 <h3>Secure Transport Layer</h3>
                 <h4>Computer Networking (CS118)</h4>
-                <p>Developed a custom secure protocol in C featuring a TLS handshake. Integrated AES-256-CBC and HMAC-SHA256 for data privacy and integrity.</p>
+                <p>
+                    Implemented a custom secure transport protocol in C with a TLS-style handshake,
+                    encryption, and integrity checks.
+                </p>
+
+                <div class="tech-stack" aria-label="Technologies used">
+                    <span class="tech-tag">C</span>
+                    <span class="tech-tag">Networking</span>
+                    <span class="tech-tag">AES-256-CBC</span>
+                    <span class="tech-tag">HMAC-SHA256</span>
+                </div>
+
+                <div class="technical-details">
+                    <div>
+                        <h5>Technical details</h5>
+                        <ul>
+                            <li>Implemented handshake logic to establish a secure session between network peers.</li>
+                            <li>Applied AES-256-CBC for confidentiality and HMAC-SHA256 for message integrity.</li>
+                            <li>Debugged protocol behavior across the boundary between systems code and network I/O.</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="btn-group">
                     <a href="https://github.com/xandnea/CS118-Project2" class="btn btn-secondary">Source Code</a>
                 </div>
@@ -218,7 +201,28 @@
                 <span class="date-tag">2025</span>
                 <h3>Brewin Interpreter</h3>
                 <h4>Programming Languages (CS131)</h4>
-                <p>Programmed a functional language interpreter in Python. Implemented AST parsing, dynamic scoping, and variable shadowing.</p>
+                <p>
+                    Built a Python interpreter for a functional language, from parsing source
+                    programs to evaluating scoped expressions.
+                </p>
+
+                <div class="tech-stack" aria-label="Technologies used">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">AST Parsing</span>
+                    <span class="tech-tag">Language Design</span>
+                </div>
+
+                <div class="technical-details">
+                    <div>
+                        <h5>Technical details</h5>
+                        <ul>
+                            <li>Implemented AST parsing and evaluation for functional language constructs.</li>
+                            <li>Handled dynamic scoping and variable shadowing through explicit environment management.</li>
+                            <li>Modeled the behavior of a complete execution pipeline from source code to runtime evaluation.</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="btn-group">
                     <a href="https://github.com/xandnea/CS131-Project1" class="btn btn-secondary">Source Code</a>
                 </div>
@@ -228,20 +232,126 @@
                 <span class="date-tag">2023</span>
                 <h3>"On My Own"</h3>
                 <h4>ACM.studio Project</h4>
-                <p>Developed a 2D physics-platformer in Unity. Designed localized gravity field mechanics and a custom character controller for spatial puzzles.</p>
+                <p>
+                    Co-developed a Unity 2D physics platformer centered on localized gravity fields
+                    and spatial puzzles.
+                </p>
+
+                <div class="tech-stack" aria-label="Technologies used">
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">2D Physics</span>
+                    <span class="tech-tag">Game Design</span>
+                </div>
+
+                <div class="technical-details">
+                    <div>
+                        <h5>Technical details</h5>
+                        <ul>
+                            <li>Designed localized gravity-field mechanics that altered movement and puzzle constraints.</li>
+                            <li>Implemented a custom character controller to keep traversal responsive under changing forces.</li>
+                            <li>Collaborated on a shippable team game with a public demo and source code.</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="btn-group">
                     <a href="http://kmbusybee.itch.io/on-my-own" class="btn">Play Demo</a>
                     <a href="https://github.com/kmachnickiwork49/team_omo" class="btn btn-secondary">Source Code</a>
                 </div>
             </div>
 
+            <div class="card">
+                <span class="date-tag">2025</span>
+                <h3>C++ Static Web Server</h3>
+                <h4>Software Engineering Capstone (CS130)</h4>
+
+                <p>
+                    Collaborated with a small team to build a containerized C++ HTTP server that 
+                    dispatches requests and serves static content from configured routes.
+                </p>
+
+                <div class="tech-stack" aria-label="Technologies used">
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Boost.Asio</span>
+                    <span class="tech-tag">CMake</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">HTTP</span>
+                </div>
+
+                <div class="technical-details">
+                    <div>
+                        <h5>Technical details</h5>
+                        <ul>
+                            <li>Used Boost.Asio to implement the asynchronous server and HTTP request-handling flow.</li>
+                            <li>Created route-to-directory configuration for static assets and verified 200 responses for HTML and CSS.</li>
+                            <li>Used CMake and Docker to create a reproducible build and runtime environment.</li>
+                            <li>Most of my contributions are recorded under the Gerrit username <code>Devel User</code>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://code.cs130.org/plugins/gitiles/overthinkerz-webserver/" class="btn btn-secondary">Source Code</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="date-tag">2026</span>
+                <h3>Parallel Computing &amp; Accelerators</h3>
+                <h4>Parallel Computing (CS133)</h4>
+
+                <p>
+                    Implemented and optimized compute kernels across shared-memory,
+                    distributed-memory, GPU, and FPGA platforms.
+                </p>
+
+                <div class="tech-stack" aria-label="Technologies used">
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">OpenMP</span>
+                    <span class="tech-tag">MPI</span>
+                    <span class="tech-tag">CUDA</span>
+                    <span class="tech-tag">FPGA HLS</span>
+                </div>
+
+                <div class="technical-details">
+                    <div>
+                        <h5>Technical details</h5>
+                        <ul>
+                            <li>Improved GEMM performance through cache blocking, loop-order experiments, and OpenMP parallelization.</li>
+                            <li>Implemented MPI scatter, broadcast, and gather coordination for distributed matrix multiplication.</li>
+                            <li>Built GPU and FPGA CNN kernels while working with thread mapping, shared-memory tiling, vectorization, and pipeline constraints.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://github.com/xandnea/CS133-Lab1" class="btn">OpenMP GEMM</a>
+                    <a href="https://github.com/xandnea/CS133-Lab2" class="btn btn-secondary">MPI GEMM</a>
+                    <a href="https://github.com/xandnea/CS133-Lab3" class="btn btn-secondary">CUDA CNN</a>
+                    <a href="https://github.com/xandnea/CS133-Lab4" class="btn btn-secondary">FPGA CNN</a>
+                </div>
+            </div>
+
             <div class="card resume-card">
-                <span class="date-tag">Current</span>
-                <h3>Professional Resume</h3>
+                <span class="date-tag">Available to work: Jan. 2027</span>
+
+                <h3>Resume &amp; Contact</h3>
                 <h4>Software Engineering</h4>
-                <p>A comprehensive overview of academic coursework at UCLA, technical skills in C++, and professional research experience in simulation and graphics.</p>
+
+                <p>
+                    UCLA B.S. Computer Science candidate graduating December 2026.
+                    I build C++/C#/Python systems across simulation, robotics, XR, computer vision,
+                    and real-time interactive software.
+                </p>
+
                 <div class="btn-group" style="justify-content: center;">
-                    <a href="https://xandnea.github.io/Software Resume 9_24_26.pdf" class="btn">Download PDF</a>
+                    <a href="https://xandnea.github.io/Software Resume 9_24_26.pdf" class="btn">
+                        Download Resume (PDF)
+                    </a>
+                    <a href="https://www.linkedin.com/in/xander-neary/" class="btn btn-secondary">
+                        LinkedIn
+                    </a>
                 </div>
             </div>
         </div>
