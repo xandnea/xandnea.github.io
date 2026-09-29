@@ -201,6 +201,21 @@ header p {
     transform: translateY(-6px);
 }
 
+.availability-tag {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    z-index: 1;
+    color: var(--ucla-blue);
+    background: rgba(39, 116, 174, 0.5);
+    border: 1px solid rgba(39, 115, 174, 0.5);
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: white;
+    padding: 5px 10px;
+}
+
 .date-tag {
     position: absolute;
     top: 20px;
